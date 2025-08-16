@@ -1,3 +1,4 @@
+import React from "react";
 import { cn } from "@/app/lib/utils";
 
 interface SpaceSubheadingProps {
@@ -13,8 +14,6 @@ export function SpaceSubheading({
   accent = false, 
   className 
 }: SpaceSubheadingProps) {
-  const Component = `h${level}` as keyof JSX.IntrinsicElements;
-  
   const baseStyles = accent ? "font-accent" : "font-primary";
   const weightStyles = "font-semibold tracking-wide";
   
@@ -26,17 +25,13 @@ export function SpaceSubheading({
     6: "text-sm md:text-base lg:text-lg"
   };
   
-  return (
-    <Component 
-      className={cn(
-        baseStyles,
-        weightStyles,
-        sizeStyles[level],
-        "text-gray-200",
-        className
-      )}
-    >
-      {children}
-    </Component>
+  const className_combined = cn(
+    baseStyles,
+    weightStyles,
+    sizeStyles[level],
+    "text-gray-200",
+    className
   );
+  
+  return React.createElement(`h${level}`, { className: className_combined }, children);
 }

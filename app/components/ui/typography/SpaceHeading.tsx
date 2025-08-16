@@ -1,3 +1,4 @@
+import React from "react";
 import { cn } from "@/app/lib/utils";
 
 interface SpaceHeadingProps {
@@ -13,8 +14,6 @@ export function SpaceHeading({
   gradient = false, 
   className 
 }: SpaceHeadingProps) {
-  const Component = `h${level}` as keyof JSX.IntrinsicElements;
-  
   const baseStyles = "font-primary font-bold tracking-wide";
   
   const sizeStyles = {
@@ -29,17 +28,13 @@ export function SpaceHeading({
   const gradientStyles = gradient 
     ? "bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent"
     : "text-white";
-  
-  return (
-    <Component 
-      className={cn(
-        baseStyles,
-        sizeStyles[level],
-        gradientStyles,
-        className
-      )}
-    >
-      {children}
-    </Component>
+
+  const className_combined = cn(
+    baseStyles,
+    sizeStyles[level],
+    gradientStyles,
+    className
   );
+  
+  return React.createElement(`h${level}`, { className: className_combined }, children);
 }
