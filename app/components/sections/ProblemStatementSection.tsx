@@ -21,7 +21,7 @@ export function ProblemStatementSection() {
       title: "Blockchain & Web3",
       icon: "⛓️",
       description: "Build decentralized applications and explore the future of digital transactions and ownership.",
-      color: "from-purple-500 to-pink-500",
+      color: "from-blue-500 to-green-500",
       challenges: ["DeFi Solutions", "NFT Platforms", "Smart Contracts"],
       difficulty: "Expert"
     },
@@ -76,7 +76,7 @@ export function ProblemStatementSection() {
   return (
     <CosmicSection id="problem-statement" className="relative">
       {/* Animated background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-900/5 via-blue-900/5 to-cyan-900/5 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-cyan-900/5 via-blue-900/5 to-teal-900/5 pointer-events-none" />
       
       <div className="relative z-10">
         <SpaceSectionHeader
@@ -117,7 +117,7 @@ export function ProblemStatementSection() {
                     <ul className="space-y-1">
                       {track.challenges.map((challenge, idx) => (
                         <li key={idx} className="text-sm text-gray-400 flex items-center">
-                          <span className="w-2 h-2 bg-purple-400 rounded-full mr-2 flex-shrink-0"></span>
+                          <span className="w-2 h-2 bg-cyan-400 rounded-full mr-2 flex-shrink-0"></span>
                           {challenge}
                         </li>
                       ))}

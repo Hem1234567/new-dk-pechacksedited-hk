@@ -47,17 +47,19 @@ export function FooterSection() {
   ];
 
   return (
-    <footer className="relative bg-black/30 backdrop-blur-lg border-t border-gray-700/30 py-8">
+    <footer className="relative bg-black/5 backdrop-blur-2xl border-t border-white/10 py-8 shadow-2xl shadow-black/20">
       {/* Enhanced translucent background effects */}
-      <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 via-blue-900/10 to-transparent pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-purple-500/5 to-pink-500/5 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-blue-900/10 via-teal-900/5 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/2 via-green-500/2 to-teal-500/2 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/[0.03] to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/[0.02] pointer-events-none" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content - More compact */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
           {/* Brand Section - Simplified */}
           <div className="lg:col-span-1">
-            <h3 className="text-2xl font-bold font-transformers bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-2 tracking-wide">
+            <h3 className="text-2xl font-bold font-transformers bg-gradient-to-r from-cyan-400 via-blue-500 to-green-500 bg-clip-text text-transparent mb-2 tracking-wide">
               PEC HACKS 3.0
             </h3>
             <p className="text-gray-300 font-rajdhani text-sm leading-relaxed mb-3">
@@ -93,7 +95,7 @@ export function FooterSection() {
         </div>
 
         {/* Bottom Section - Streamlined */}
-        <div className="border-t border-gray-700/30 pt-4">
+        <div className="border-t border-white/10 pt-4">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-2 sm:space-y-0">
             {/* Copyright - Compact */}
             <div className="text-center sm:text-left">
@@ -105,7 +107,7 @@ export function FooterSection() {
             {/* Credits */}
             <div className="flex items-center">
               <p className="text-xs text-gray-500 font-rajdhani">
-                Made with ❤️ by <span className="font-transformers tracking-wide text-purple-400">PEC HACKS</span> Team
+                Made with ❤️ by <span className="font-transformers tracking-wide text-cyan-400">PEC HACKS</span> Team
               </p>
             </div>
           </div>

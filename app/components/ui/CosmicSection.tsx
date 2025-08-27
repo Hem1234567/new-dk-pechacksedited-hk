@@ -45,7 +45,7 @@ export function SectionHeader({
     <div className={cn("text-center mb-16", className)}>
       <h2 className={cn(
         "text-4xl md:text-5xl lg:text-6xl font-bold mb-6",
-        "bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent",
+        "bg-gradient-to-r from-cyan-400 via-blue-500 to-green-500 bg-clip-text text-transparent",
         "font-major-mono",
         titleClassName
       )}>

@@ -29,9 +29,9 @@ const GlassContainer: React.FC<GlassContainerProps> = ({
       boxShadow: '0 4px 16px rgba(0, 0, 0, 0.2)',
     },
     accent: {
-      background: opacity ? `rgba(147, 51, 234, ${opacity})` : 'rgba(147, 51, 234, 0.1)',
-      border: '1px solid rgba(147, 51, 234, 0.3)',
-      boxShadow: '0 8px 32px rgba(147, 51, 234, 0.2)',
+      background: opacity ? `rgba(0, 191, 255, ${opacity})` : 'rgba(0, 191, 255, 0.1)',
+      border: '1px solid rgba(0, 191, 255, 0.3)',
+      boxShadow: '0 8px 32px rgba(0, 191, 255, 0.2)',
     },
   };
 

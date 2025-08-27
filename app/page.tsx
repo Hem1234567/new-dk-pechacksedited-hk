@@ -46,8 +46,8 @@ export default function Home() {
         {/* Global Vortex Background */}
         <div className="fixed inset-0 w-full h-full z-0">
           <Vortex
-            backgroundColor="black"
-            baseHue={220}
+            customColors={["#cad6f2", "#72a1de", "#1db6d9", "#9dddea", "#74cce0"]}
+            backgroundColor="#000000" // Dark background to make colors pop
             particleCount={500}
             rangeY={800}
             baseSpeed={0.1}

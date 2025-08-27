@@ -15,10 +15,10 @@ export function CosmicLoader({ size = 'md', className }: CosmicLoaderProps) {
 
   return (
     <div className={cn("relative", sizeStyles[size], className)}>
-      <div className="absolute inset-0 rounded-full border-2 border-purple-500/20"></div>
-      <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-purple-500 animate-spin"></div>
+      <div className="absolute inset-0 rounded-full border-2 border-blue-500/20"></div>
+      <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-blue-500 animate-spin"></div>
       <div className="absolute inset-2 rounded-full border-2 border-transparent border-t-cyan-400 animate-spin animate-reverse animation-delay-150"></div>
-      <div className="absolute inset-4 rounded-full border-2 border-transparent border-t-pink-400 animate-spin animation-delay-300"></div>
+      <div className="absolute inset-4 rounded-full border-2 border-transparent border-t-green-400 animate-spin animation-delay-300"></div>
     </div>
   );
 }
@@ -35,19 +35,19 @@ export function LoadingScreen({ isLoading }: LoadingScreenProps) {
       <div className="text-center space-y-8">
         <div className="relative">
           <CosmicLoader size="lg" />
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-cyan-500 to-pink-500 rounded-full blur-xl opacity-30 animate-pulse"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-cyan-500 to-green-500 rounded-full blur-xl opacity-30 animate-pulse"></div>
         </div>
         <div className="space-y-4">
-          <h1 className="text-2xl md:text-4xl font-bold font-transformers bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent tracking-wider">
+          <h1 className="text-2xl md:text-4xl font-bold font-transformers bg-gradient-to-r from-cyan-400 via-blue-500 to-green-500 bg-clip-text text-transparent tracking-wider">
             PEC HACKS 3.0
           </h1>
           <p className="text-gray-400 font-electrolize">
             Initializing cosmic systems...
           </p>
           <div className="flex justify-center space-x-1">
-            <div className="w-2 h-2 bg-purple-500 rounded-full animate-bounce"></div>
+            <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce"></div>
             <div className="w-2 h-2 bg-cyan-500 rounded-full animate-bounce animation-delay-150"></div>
-            <div className="w-2 h-2 bg-pink-500 rounded-full animate-bounce animation-delay-300"></div>
+            <div className="w-2 h-2 bg-green-500 rounded-full animate-bounce animation-delay-300"></div>
           </div>
         </div>
       </div>

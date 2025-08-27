@@ -19,11 +19,11 @@ export function CosmicCard({
 }: CosmicCardProps) {
   const variantStyles = {
     default: "bg-white/5 border-white/10",
-    feature: "bg-gradient-to-br from-purple-500/10 via-blue-500/10 to-cyan-500/10 border-purple-500/20",
-    highlight: "bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-pink-500/10 border-cyan-500/20"
+    feature: "bg-gradient-to-br from-blue-500/10 via-teal-500/10 to-cyan-500/10 border-blue-500/20",
+    highlight: "bg-gradient-to-br from-cyan-500/10 via-green-500/10 to-teal-500/10 border-cyan-500/20"
   };
 
-  const glowEffect = glow ? "shadow-2xl shadow-purple-500/20 hover:shadow-purple-500/40" : "";
+  const glowEffect = glow ? "shadow-2xl shadow-blue-500/20 hover:shadow-blue-500/40" : "";
 
   return (
     <GlassContainer

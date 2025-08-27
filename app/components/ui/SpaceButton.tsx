@@ -36,9 +36,9 @@ const SpaceButton: React.FC<SpaceButtonProps> = ({
   // Variant styles with glass morphism and space theme
   const variantStyles = {
     primary: {
-      base: 'bg-gradient-to-r from-purple-600 to-blue-600 text-white border border-purple-500/30 shadow-lg shadow-purple-500/25',
-      hover: 'hover:from-purple-500 hover:to-blue-500 hover:shadow-xl hover:shadow-purple-500/40 hover:scale-105',
-      focus: 'focus:ring-purple-500',
+      base: 'bg-gradient-to-r from-blue-600 to-teal-600 text-white border border-blue-500/30 shadow-lg shadow-blue-500/25',
+      hover: 'hover:from-blue-500 hover:to-teal-500 hover:shadow-xl hover:shadow-blue-500/40 hover:scale-105',
+      focus: 'focus:ring-blue-500',
       active: 'active:scale-95',
     },
     secondary: {

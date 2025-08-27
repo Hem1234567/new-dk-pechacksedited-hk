@@ -29,11 +29,11 @@ export function CosmicText({
   };
 
   const gradientStyle = gradient 
-    ? "bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent"
+    ? "bg-gradient-to-r from-cyan-400 via-blue-500 to-green-500 bg-clip-text text-transparent"
     : "";
 
   const glowStyle = glow 
-    ? "drop-shadow-[0_0_20px_rgba(147,51,234,0.5)]"
+    ? "drop-shadow-[0_0_20px_rgba(0,191,255,0.5)]"
     : "";
 
   const classes = cn(

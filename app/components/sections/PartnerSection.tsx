@@ -27,7 +27,7 @@ export function PartnerSection() {
       level: "Cosmic",
       investment: "₹5,00,000+",
       icon: "💎",
-      color: "from-purple-500 to-pink-500",
+      color: "from-blue-500 to-green-500",
       benefits: [
         "Logo placement on all event materials",
         "Premium booth space allocation",
@@ -89,7 +89,7 @@ export function PartnerSection() {
   return (
     <CosmicSection id="partners" className="relative">
       {/* Background overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 via-purple-900/5 to-cyan-900/10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 via-cyan-900/5 to-teal-900/10 pointer-events-none" />
       
       <div className="relative z-10">
         <SpaceSectionHeader
@@ -119,7 +119,7 @@ export function PartnerSection() {
 
         {/* Partnership Tiers */}
         <div className="mb-20">
-          <h3 className="text-3xl md:text-4xl font-bold font-bungee text-center text-purple-300 mb-12">
+          <h3 className="text-3xl md:text-4xl font-bold font-bungee text-center text-cyan-300 mb-12">
             Partnership Opportunities
           </h3>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

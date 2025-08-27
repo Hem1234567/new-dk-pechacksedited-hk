@@ -26,7 +26,7 @@ export function SpaceHeading({
   };
   
   const gradientStyles = gradient 
-    ? "bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent"
+    ? "bg-gradient-to-r from-blue-400 via-teal-500 to-cyan-400 bg-clip-text text-transparent"
     : "text-white";
 
   const className_combined = cn(

@@ -33,7 +33,7 @@ export function AboutSection() {
   return (
     <CosmicSection id="about" className="relative">
       {/* Background gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-900/10 via-transparent to-blue-900/10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-cyan-900/10 via-transparent to-blue-900/10 pointer-events-none" />
 
       <div className="relative z-10">
         <SpaceSectionHeader
@@ -82,7 +82,7 @@ export function AboutSection() {
               
               <CosmicCard variant="feature" hover glow>
                 <div className="text-center">
-                  <div className="text-3xl font-major-mono text-purple-400 mb-2">
+                  <div className="text-3xl font-major-mono text-cyan-400 mb-2">
                     <AnimatedCounter end={500} suffix="+" />
                   </div>
                   <CosmicText variant="caption" className="text-gray-300">Participants</CosmicText>
@@ -91,7 +91,7 @@ export function AboutSection() {
               
               <CosmicCard variant="highlight" hover glow>
                 <div className="text-center">
-                  <div className="text-3xl font-major-mono text-pink-400 mb-2">
+                  <div className="text-3xl font-major-mono text-green-400 mb-2">
                     <AnimatedCounter end={5} prefix="₹" suffix="L+" />
                   </div>
                   <CosmicText variant="caption" className="text-gray-300">Total Prizes</CosmicText>
