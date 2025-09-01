@@ -10,7 +10,7 @@ interface SpaceSectionHeaderProps {
 
 export function SpaceSectionHeader({ title, subtitle, className }: SpaceSectionHeaderProps) {
   return (
-    <div className={`relative pt-10 ${className}`}>
+    <div className={`relative  ${className}`}>
       <div className="relative flex min-h-[400px] flex-col items-center justify-center overflow-hidden bg-transparent w-full rounded-md z-0">
         <div className="relative flex w-full flex-1 scale-y-75 items-center justify-center isolate z-0">
           <motion.div

@@ -16,30 +16,40 @@ interface VortexProps {
   baseRadius?: number;
   rangeRadius?: number;
   backgroundColor?: string;
+  customColors?: string[]; // New prop for custom color palette
 }
 
 export const Vortex = (props: VortexProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef(null);
   const animationFrameId = useRef<number>(0);
-  const particleCount = props.particleCount || 400; // Reduced from 700
+  const particleCount = props.particleCount || 600; // Increased from 400 for better coverage
   const particlePropCount = 9;
   const particlePropsLength = particleCount * particlePropCount;
-  const rangeY = props.rangeY || 100;
+  const rangeY = props.rangeY || window.innerHeight || 800; // Use full screen height
   const baseTTL = 50;
   const rangeTTL = 150;
-  const baseSpeed = props.baseSpeed || 0.0;
-  const rangeSpeed = props.rangeSpeed || 1.5;
+  const baseSpeed = props.baseSpeed || 0.5; // Increased from 0.0
+  const rangeSpeed = props.rangeSpeed || 2.0; // Increased from 1.5
   const baseRadius = props.baseRadius || 1;
   const rangeRadius = props.rangeRadius || 2;
-  const baseHue = props.baseHue || 220;
-  const rangeHue = 100;
+  const baseHue = props.baseHue || 10;
+  const rangeHue = 600;
   const noiseSteps = 3;
   const xOff = 0.00125;
   const yOff = 0.00125;
   const zOff = 0.0005;
   const backgroundColor = props.backgroundColor || "#000000";
   
+  // Custom color palette - your specific colors
+  const customColors = props.customColors || [
+    "#cad6f2",
+    "#72a1de", 
+    "#1db6d9",
+    "#9dddea",
+    "#74cce0"
+  ];
+
   // Memoized constants and utilities
   const constants = useMemo(() => ({
     HALF_PI: 0.5 * Math.PI,
@@ -61,6 +71,19 @@ export const Vortex = (props: VortexProps) => {
   }, []);
   const lerp = useCallback((n1: number, n2: number, speed: number): number =>
     (1 - speed) * n1 + speed * n2, []);
+
+  // Function to get a random color from the custom palette
+  const getRandomColor = useCallback(() => {
+    return customColors[Math.floor(Math.random() * customColors.length)];
+  }, [customColors]);
+
+  // Function to convert hex to rgba with opacity
+  const hexToRgba = useCallback((hex: string, opacity: number) => {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+  }, []);
 
   const setup = useCallback(() => {
     const canvas = canvasRef.current;
@@ -89,20 +112,20 @@ export const Vortex = (props: VortexProps) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    let x, y, vx, vy, life, ttl, speed, radius, hue;
+    let x, y, vx, vy, life, ttl, speed, radius, colorIndex;
 
     x = rand(canvas.width);
-    y = centerRef.current[1] + randRange(rangeY);
+    y = rand(canvas.height); // Changed from centerRef.current[1] + randRange(rangeY) to full height
     vx = 0;
     vy = 0;
     life = 0;
     ttl = baseTTL + rand(rangeTTL);
     speed = baseSpeed + rand(rangeSpeed);
     radius = baseRadius + rand(rangeRadius);
-    hue = baseHue + rand(rangeHue);
+    colorIndex = Math.floor(rand(customColors.length)); // Store color index instead of hue
 
-    particlePropsRef.current.set([x, y, vx, vy, life, ttl, speed, radius, hue], i);
-  }, [rangeY, baseTTL, rangeTTL, baseSpeed, rangeSpeed, baseRadius, rangeRadius, baseHue, rangeHue]);
+    particlePropsRef.current.set([x, y, vx, vy, life, ttl, speed, radius, colorIndex], i);
+  }, [baseTTL, rangeTTL, baseSpeed, rangeSpeed, baseRadius, rangeRadius, customColors.length]);
 
   const draw = useCallback((canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => {
     tick++;
@@ -139,7 +162,7 @@ export const Vortex = (props: VortexProps) => {
       i7 = 6 + i,
       i8 = 7 + i,
       i9 = 8 + i;
-    let n, x, y, vx, vy, life, ttl, speed, x2, y2, radius, hue;
+    let n, x, y, vx, vy, life, ttl, speed, x2, y2, radius, colorIndex;
 
     const particleProps = particlePropsRef.current;
     x = particleProps[i];
@@ -153,9 +176,9 @@ export const Vortex = (props: VortexProps) => {
     x2 = x + vx * speed;
     y2 = y + vy * speed;
     radius = particleProps[i8];
-    hue = particleProps[i9];
+    colorIndex = particleProps[i9];
 
-    drawParticle(x, y, x2, y2, life, ttl, radius, hue, ctx);
+    drawParticle(x, y, x2, y2, life, ttl, radius, colorIndex, ctx);
 
     life++;
 
@@ -176,20 +199,23 @@ export const Vortex = (props: VortexProps) => {
     life: number,
     ttl: number,
     radius: number,
-    hue: number,
+    colorIndex: number,
     ctx: CanvasRenderingContext2D,
   ) => {
+    const opacity = fadeInOut(life, ttl);
+    const color = customColors[Math.floor(colorIndex) % customColors.length];
+    
     ctx.save();
     ctx.lineCap = "round";
     ctx.lineWidth = radius;
-    ctx.strokeStyle = `hsla(${hue},100%,60%,${fadeInOut(life, ttl)})`;
+    ctx.strokeStyle = hexToRgba(color, opacity);
     ctx.beginPath();
     ctx.moveTo(x, y);
     ctx.lineTo(x2, y2);
     ctx.stroke();
     ctx.closePath();
     ctx.restore();
-  }, [fadeInOut]);
+  }, [fadeInOut, customColors, hexToRgba]);
 
   const checkBounds = useCallback((x: number, y: number, canvas: HTMLCanvasElement) => {
     return x > canvas.width || x < 0 || y > canvas.height || y < 0;
@@ -213,13 +239,13 @@ export const Vortex = (props: VortexProps) => {
     ctx: CanvasRenderingContext2D,
   ) => {
     ctx.save();
-    ctx.filter = "blur(6px) brightness(150%)"; // Reduced from 8px blur for better performance
+    ctx.filter = "blur(6px) brightness(150%)";
     ctx.globalCompositeOperation = "lighter";
     ctx.drawImage(canvas, 0, 0);
     ctx.restore();
 
     ctx.save();
-    ctx.filter = "blur(3px) brightness(150%)"; // Reduced from 4px blur for better performance
+    ctx.filter = "blur(3px) brightness(150%)";
     ctx.globalCompositeOperation = "lighter";
     ctx.drawImage(canvas, 0, 0);
     ctx.restore();
@@ -256,7 +282,7 @@ export const Vortex = (props: VortexProps) => {
   }, [setup, handleResize]);
 
   return (
-    <div className={cn("relative h-full w-full", props.containerClassName)}>
+    <div className={cn("fixed inset-0 h-screen w-screen", props.containerClassName)}>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -266,7 +292,7 @@ export const Vortex = (props: VortexProps) => {
         <canvas ref={canvasRef}></canvas>
       </motion.div>
 
-      <div className={cn("relative z-10", props.className)}>
+      <div className={cn("relative z-10 h-full w-full", props.className)}>
         {props.children}
       </div>
     </div>
