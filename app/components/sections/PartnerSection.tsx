@@ -119,8 +119,7 @@ export function PartnerSection() {
   return (
     <CosmicSection id="partners" className="relative">
       {/* Background overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 via-purple-900/5 to-cyan-900/10 pointer-events-none" />
-
+      
       <div className="relative z-10">
         <SpaceSectionHeader
           title="Join Our Cosmic Alliance"

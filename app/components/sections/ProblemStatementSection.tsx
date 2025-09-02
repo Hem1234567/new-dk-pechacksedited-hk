@@ -90,7 +90,7 @@ export function ProblemStatementSection() {
   return (
     <CosmicSection id="problem-statement" className="relative">
       {/* Animated background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-900/5 via-blue-900/5 to-cyan-900/5 pointer-events-none" />
+      
 
       <div className="relative z-10">
         <SpaceSectionHeader

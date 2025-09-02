@@ -88,7 +88,7 @@ export function AboutSection() {
     },
     {
       id: 3,
-      name: "Mrs. C Vijayarajeswari",
+      name: "Mrs.C Vijayarajeswari",
       title: "Director",
       image: "/rajeswari-1.jpg", // Replace with actual image path
     },
@@ -109,7 +109,6 @@ export function AboutSection() {
   return (
     <CosmicSection id="about" className="relative back_about not-selectable">
       {/* Background gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-900/10 via-transparent to-blue-900/10 pointer-events-none" />
 
       <div className="relative z-10 container abo-pat">
         {/* Particle Background - This would need a proper implementation */}
@@ -125,6 +124,7 @@ export function AboutSection() {
               className="col-lg-5 self-center aos-init mb-10 lg:mb-0"
               data-aos="zoom-in"
               data-aos-once="true"
+              style={{ fontFamily: "'Passion One', sans-serif" }}
             >
               <br />
               <CosmicText
@@ -136,7 +136,7 @@ export function AboutSection() {
               <br />
               <CosmicText
                 variant="body"
-                className="about-para text-gray-300 leading-relaxed mb-8"
+                className="about-para text-gray-300 leading-relaxed mb-8 text-xl "
               >
                 "Introducing{" "}
                 <span className="font-semibold text-cyan-300 tracking-wide">
@@ -144,7 +144,7 @@ export function AboutSection() {
                 </span>
                 – where boundless creativity meets game-changing innovation!
                 Hosted by
-                <span className="font-semibold text-white">
+                <span className="font-semibold text-white ">
                   {" "}
                   PANIMALAR ENGINEERING COLLEGE, CHENNAI, TAMILNADU,
                 </span>{" "}
@@ -208,8 +208,6 @@ export function AboutSection() {
                     Prize Pool - ₹ 19 Lakhs <br />
                   </p>
                 </div>
-
-                
               </div>
             </div>
           </div>
@@ -257,7 +255,7 @@ export function AboutSection() {
           </div>
 
           {/* Second row with 3 boxes - increased size */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mx-auto max-w-8xl">
             {patrons.slice(2, 5).map((patron) => (
               <CosmicCard
                 key={patron.id}
@@ -296,7 +294,7 @@ export function AboutSection() {
             <CosmicCard
               variant="default"
               hover
-              className="p-8 h-full min-h-[180px] flex items-center"
+              className="p-6 h-full min-h-[140px] flex items-center"
             >
               <div className="flex items-center gap-6 w-full">
                 {/* College Logo - no rounded corners */}
@@ -312,11 +310,13 @@ export function AboutSection() {
                 </div>
 
                 {/* Organised By text */}
-                <div className="flex-1 text-right">
-                  <h3 className="text-xl font-bold text-cyan-300 mb-2">
+                <div className="flex-1 text-left">
+                  <h3 className="text-lg font-bold text-cyan-300 mb-1">
                     Organised By
                   </h3>
-                  <p className="text-gray-400">Panimalar Engineering College</p>
+                  <p className="text-sm text-gray-400">
+                    Panimalar Engineering College
+                  </p>
                 </div>
               </div>
             </CosmicCard>
@@ -325,12 +325,12 @@ export function AboutSection() {
             <CosmicCard
               variant="default"
               hover
-              className="p-8 h-full min-h-[180px] flex items-center"
+              className="p-3 h-full min-h-[140px] flex items-center"
             >
               <div className="flex items-center gap-6 w-full">
                 {/* GDG Logo - no rounded corners */}
                 <div className="flex-shrink-0">
-                  <div className="relative w-32 h-40 overflow-hidden">
+                  <div className="relative w-40 h-40 overflow-hidden">
                     <Image
                       src="/gdg-bg-remove.png" // Replace with actual GDG logo path
                       alt="Google Developer Groups"
@@ -342,10 +342,12 @@ export function AboutSection() {
 
                 {/* GDG Info */}
                 <div className="flex-1 text-right">
-                  <h3 className="text-xl font-bold text-cyan-300 mb-2">
+                  <h3 className="text-lg font-bold text-cyan-300 mb-1">
                     In Association With
                   </h3>
-                  <p className="text-gray-400">Google Developer Groups</p>
+                  <p className="text-sm text-gray-400">
+                    Google Developer Groups
+                  </p>
                 </div>
               </div>
             </CosmicCard>

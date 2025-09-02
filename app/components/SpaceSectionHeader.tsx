@@ -81,7 +81,7 @@ export function SpaceSectionHeader({ title, subtitle, className }: SpaceSectionH
               duration: 0.8,
               ease: "easeInOut",
             }}
-            className="bg-gradient-to-br from-white to-white py-2 bg-clip-text text-center text-3xl font-bold tracking-tight text-transparent md:text-5xl"
+            className="bg-gradient-to-br from-white to-white -mt-10 bg-clip-text text-center text-3xl font-bold tracking-tight text-transparent md:text-5xl"
           >
             {title}
           </motion.h2>
